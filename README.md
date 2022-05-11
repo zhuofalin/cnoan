@@ -120,7 +120,7 @@ This doesn't work. In this project, I classify this similar content as `abnormal
 ````python
 'Thinking':
 # encoder
-  masks = ['1510', ''] # list[str, str, ...] define abnormal words
+  masks = ['一五一十', ''] # list[str, str, ...] define abnormal words
   inputs = str('XXXxxx')
   mask_contents = {}
   for index, item in enumerate(masks):
