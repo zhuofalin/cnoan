@@ -37,7 +37,7 @@ except FileNotFoundError:
     __version__ = '0.0.0'
 
 if __name__ == '__main__':
-    __version__ = '0.0.0'
+    __version__ = '1.1.1'
     setup(
         name=NAME,
         version=__version__,
