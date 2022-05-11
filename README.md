@@ -2,7 +2,7 @@
 
 There should be emojis here (●'◡'●)
 
-Project Description and Description [English Version](readme.md)
+Project Description and Description [English Version](readme.md)  
 工程说明与描述[中文版本](readme_cn.md)
 
 ♠ **`cnoan`** is a toolkit to quickly convert `Chinese numbers` and `Arabic numbers`! in  
@@ -10,34 +10,47 @@ Project Description and Description [English Version](readme.md)
   **`an`** refers specifically to Arabic numerals  
   **`o`** stands for reciprocal  
 
-♥ The `mutual` in the interchange is difficult to translate /(ㄒoㄒ)/~~
-If the first letter of `mutual` is used, then the name of this project will feel like 🐎 people (spread bad speech 🔪, close the small black house❎);
-Roughly, it means mutual rotation. The two are connected through __c__, which can only reflect the meaning of one-way 👉;
+♥ The Chinese `互` in the interchange is difficult to translate and shorthand /(ㄒoㄒ)/~~
+If the first letter of `mutual` is used, then the name of this project will feel like 🐎 people  
+(spread bad speech 🔪, close the small black house❎);   
+Roughly, it means mutual rotation. The two are connected through __c__, which can only reflect the meaning of one-way or one-path 👉;   
 Therefore, `o` is used to connect in the middle, which can reflect the concept of `·mutual·` `·ring·` to a certain extent;  
 
 ♦ This project is based on the ideas and guidance of [cn2an](https://github.com/Ailln/cn2an.git) to update the functions of the problems encountered or existing;
 Welcome to star and follow, everyone to maintain and improve together;   
 
 ♣ Hey, it's great *★,°*:.☆(￣▽￣)/$:*.°★* .  
+
 -----
 
 ## Directory Structure
 ````
-   Catalog Name                 Function and Description                         What's New
+   Catalog Name                 Function and Description                             What's New
+|--------------------------------------------------------------------------------------------------------
 |---an2cn.py         Convert Arabic numerals to Chinese numerals               Newly defined class names
-|---base.py          This is the base class of the project, which contains the base class of ConvertBase None
-|---cn2an.py         Convert Chinese numbers to Arabic numbers Newly defined class names
-|---config.yaml      The configuration of the project, mainly the definition of the matching rules Add the abnormal field
-|---setup.py         Project packaging, packaging and publishing Add my information
-
-|---translate.py     Convert the content of the sentence to determine the conversion,     use the abnormal field
-                     With parameters Modified regular expression
-|---Auxiliary        Definition of basic functions in utils.py                                    None
-|---requirement.txt  The package required by the project                                          None
+|--------------------------------------------------------------------------------------------------------
+|---base.py          This is the base class of the project,                             None
+                     which contains the base class of ConvertBase 
+|--------------------------------------------------------------------------------------------------------
+|---cn2an.py         Convert Chinese numbers to Arabic numbers                 Newly defined class names
+|--------------------------------------------------------------------------------------------------------
+|---config.yaml      The configuration of the project,                         Add the abnormal field
+                     mainly the definition of the matching rules 
+|--------------------------------------------------------------------------------------------------------
+|---setup.py         Project packaging and publishing                          Add my information
+|--------------------------------------------------------------------------------------------------------
+|---translate.py     Convert the content in the sentence                       Modified regular expression
+                     that determines the conversion
+                     With parameters
+|--------------------------------------------------------------------------------------------------------
+|---utils.py         Definition of basic functions in utils.py                          None
+|--------------------------------------------------------------------------------------------------------
+|---requirement.txt  The package required by the project                                None
+|--------------------------------------------------------------------------------------------------------
 ````
 ------
 
-## Project features
+## Project Function
 ### basic function
 #### 1.1 `Chinese numbers` => `Arabic numbers`
 
@@ -71,22 +84,23 @@ Welcome to star and follow, everyone to maintain and improve together;
 - support `negative numbers`;
 - Support for `HTTP API`.
 
-### Feature updates and fixes
+### Function updates & Fixes
 - 🎈 Redefine the field position to be translated (translated) (●'◡'●)
   The original project (transform+cn2en) will have the following situations
     ````
-    Seven up and eight down --> 7 up and eight down
-    2 people --> 2 people
+    七上八下 --> 7上8下
+    两人    --> 2人
+    一旦    --> 1旦
     ````
   In fact, in practical applications, we do not want it to be converted. Therefore, the premise of conversion is redefined in this project
-    ````python
-    'raw':
-        self.cn_pattern = f" negative trillion]+"
-    ````
-  ````python
+   ```python
+    'Original': 
+        self.cn_pattern = f"负?([零一二三四五六七八九十拾百佰千仟万亿]+点)?[零一二三四五六七八九十拾百佰千仟万亿]+"
+    ```
+  ```python
   'Now':
-        self.cn_pattern = f"negative?-?positive?\+?([01234567890][\s\t]*[1000000000 trillion]+)(dot [01234567890]+)?"
-  ````
+        self.cn_pattern = f"负?-?正?\+?([零一二三四五六七八九十][\s\t]*[十拾百佰千仟万亿]+)(点[零一二三四五六七八九十]+)?"
+  ```
   Of course, I can't guarantee that this rule can help you solve the corresponding business needs. Therefore, you can redefine it in __self.cn_pattern__ of [translate](translate.py).
 
 - 🎈 Introduced isolation conversion and regression of abnormal words o(*￣▽￣*)ブ
@@ -95,12 +109,12 @@ When the above redefinition criteria are defined, situations such as `Wanning`, 
 ![1](https://img1.baidu.com/it/u=1108671039,3873010749&fm=253&fmt=auto&app=138&f=GIF?w=254&h=245)
 ````python
 'E.g':
-    'One Five Ten'
+    '一五一十'
 ...
 ````
 If the word is thrown in directly, the following results will be obtained:
 ````python
-:return: 'One five 10'
+:return: '一五10'
 ````
 This doesn't work. In this project, I classify this similar content as `abnormal words`, refer to [abnormal_words in config](config.yaml)
 ````python
@@ -120,14 +134,14 @@ This doesn't work. In this project, I classify this similar content as `abnormal
           output = output.replace(contents, mask_contents[contents])
 ````
 - 🎈 Modify a point in the original project
-There is a situation in the original engineering quantity: when `liang`, `gan`, `yi`, etc. appear in the text, and are not the content to be converted, when the following demo segment is executed,
+There is a situation in the original engineering quantity: when `两`、`甘`，`幺`, etc. appear in the text, and are not the content to be converted, when the following demo segment is executed,
 ````python
   inputs = str('XXXXxxx')
   inputs = inputs.replace("twenty", "twenty").replace("half", "0.5").replace("two", "2")
 ````
 These words will be converted in advance, so this project will do the corresponding conversion after regularization judgment.
 
-- 🎈 Do a little bit of detail
+- 🎈 Do a little of detail
 We often define an unwritten rule in our daily tasks and writing papers:
 10,000 has to be written in the style of 10,000, so this project is also 'forced' to join this rule 😔  
 
@@ -141,7 +155,7 @@ print(tans.convert("这人坏滴很，王尼玛一五一十的收入为一万元
 # 这人坏滴很，王尼玛一五一十的收入为10,000元, 而两人却告诉我是2,000元
 ```
 ----
-## Project installation and usage
+## Project Installation & Usage
 ### Install
 + Method 1:
     ```
@@ -160,44 +174,42 @@ python setup.py install
   ```
 ### Usage
 ```python
-# 在文件首部引入包
+# import package which you need
 import cnoan
 
-# 查看当前版本号
+# View the current version number
 print(cnoan.__version__)
-# 0.5.16
+# 0.5.16  #  will be different
 ```
 
 ### 3.1 `Chinese numbers` => `Arabic numerals`
 
-> 最大支持到 `10**16`，即 `千万亿`，最小支持到 `10**-16`。
+> The maximum support is `10**16`, that is, `Terabillion`  
+> and the minimum support is `10**-16`.
 
 ```python
 import cnoan
 
-# 在 strict 模式（默认）下，只有严格符合数字拼写的才可以进行转化
 output = cnoan.cn2an("一百二十三")
-# 或者
+# or
 output = cnoan.cn2an("一百二十三", "strict")
 # output:
 # 123
 
-# 在 normal 模式下，可以将 一二三 进行转化
 output = cnoan.cn2an("一二三", "normal")
 # output:
 # 123
 
-# 在 smart 模式下，可以将混合拼写的 1百23 进行转化
 output = cnoan.cn2an("1百23", "smart")
 # output:
 # 123
 
-# 以上三种模式均支持负数
+# The above three modes all support negative numbers
 output = cnoan.cn2an("负一百二十三", "strict")
 # output:
 # -123
 
-# 以上三种模式均支持小数
+# All three modes above support decimals
 output = cnoan.cn2an("一点二三", "strict")
 # output:
 # 1.23
@@ -205,60 +217,54 @@ output = cnoan.cn2an("一点二三", "strict")
 
 ### 3.2 `Arabic numerals` => `Chinese numbers`
 
-> 最大支持到`10**16`，即`千万亿`，最小支持到 `10**-16`。
+> The maximum support is `10**16`, that is, `Terabillion`  
+> and the minimum support is `10**-16`.
 
 ```python
 import cnoan
 
-# 在 low 模式（默认）下，数字转化为小写的Chinese numbers
 output = cnoan.an2cn("123")
-# 或者
-output = cnoan.an2cn("123", "low")
+# or
+output = cnoan.an2cn("123", "lower")
 # output:
 # 一百二十三
 
-# 在 up 模式下，数字转化为大写的Chinese numbers
-output = cnoan.an2cn("123", "up")
+output = cnoan.an2cn("123", "upper")
 # output:
 # 壹佰贰拾叁
 
-# 在 rmb 模式下，数字转化为人民币专用的描述
 output = cnoan.an2cn("123", "rmb")
 # output:
 # 壹佰贰拾叁元整
 
-# 以上三种模式均支持负数
-output = cnoan.an2cn("-123", "low")
+output = cnoan.an2cn("-123", "lower")
 # output:
 # 负一百二十三
 
-# 以上三种模式均支持小数
 output = cnoan.an2cn("1.23", "low")
 # output:
 # 一点二三
 ```
 
-### 3.3 句子转化
+### 3.3 sentence transformation
 
 > ⚠️：Experimental feature that may cause undesired conversions.
 
 ```python
 import cnoan
 
-# 在 cn2an 方法（默认）下，可以将句子中的Chinese numbers转成Arabic numerals
 output = cnoan.translate("小王捡了一百块钱")
-# 或者
+# or
 output = cnoan.translate("小王捡了一百块钱", "cn2an")
 # output:
 # 小王捡了100块钱
 
-# 在 an2cn 方法下，可以将句子中的Chinese numbers转成Arabic numerals
 output = cnoan.translate("小王捡了100块钱", "an2cn")
 # output:
 # 小王捡了一百块钱
 
 
-## 支持日期
+## data
 output = cnoan.translate("小王的生日是二零零一年三月四日", "cn2an")
 # output:
 # 小王的生日是2001年3月4日
@@ -267,7 +273,7 @@ output = cnoan.translate("小王的生日是2001年3月4日", "an2cn")
 # output:
 # 小王的生日是二零零一年三月四日
 
-## 支持分数
+## support score
 output = cnoan.translate("抛出去的硬币为正面的概率是二分之一", "cn2an")
 # output:
 # 抛出去的硬币为正面的概率是1/2
@@ -276,8 +282,8 @@ output = cnoan.translate("抛出去的硬币为正面的概率是1/2", "an2cn")
 # output:
 # 抛出去的硬币为正面的概率是二分之一
 
-## 支持百分比
-## 支持摄氏度
+## support %
+## support ℃
 ```
 -----------
 ## License
