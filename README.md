@@ -91,7 +91,9 @@ Welcome to star and follow, everyone to maintain and improve together;
 
 - 🎈 Introduced isolation conversion and regression of abnormal words o(*￣▽￣*)ブ
 When the above redefinition criteria are defined, situations such as `Wanning`, `In case`, and `seven up and eight down` can be avoided, but it is still necessary to sigh the vastness and profoundness of Chinese
-![1](https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp4.itc.cn%2Fq_70%2Fimages03%2F20201008%2Fcd02fb0107ba41c1aaafb8efb6e87e4e.gif&refer=http%3A%2F%2Fp4.itc .cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1654829378&t=265ee0f768696f94d03b8900bdad556e)
+
+![1](https://img1.baidu.com/it/u=1108671039,3873010749&fm=253&fmt=auto&app=138&f=GIF?w=254&h=245)
+
 ````python
 'E.g':
     'One Five Ten'
