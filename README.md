@@ -137,7 +137,7 @@ This doesn't work. In this project, I classify this similar content as `abnormal
 There is a situation in the original engineering quantity: when `两`、`甘`，`幺`, etc. appear in the text, and are not the content to be converted, when the following demo segment is executed,
 ````python
   inputs = str('XXXXxxx')
-  inputs = inputs.replace("甘", "twenty").replace("半", "0.5").replace("两", "2")
+  inputs = inputs.replace("甘", "二十").replace("半", "0.5").replace("两", "2")
 ````
 These words will be converted in advance, so this project will do the corresponding conversion after regularization judgment.
 
