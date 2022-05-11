@@ -23,17 +23,17 @@ Welcome to star and follow, everyone to maintain and improve together;
 
 ## Directory Structure
 ````
-   Catalog Name Function and Description What's New
-|---an2cn.py Convert Arabic numerals to Chinese numerals Newly defined class names
-|---base.py This is the base class of the project, which contains the base class of ConvertBase None
-|---cn2an.py Convert Chinese numbers to Arabic numbers Newly defined class names
-|---config.yaml The configuration of the project, mainly the definition of the matching rules Add the abnormal field
-|---setup.py project packaging, packaging and publishing Add my information
+   Catalog Name                 Function and Description                         What's New
+|---an2cn.py         Convert Arabic numerals to Chinese numerals               Newly defined class names
+|---base.py          This is the base class of the project, which contains the base class of ConvertBase None
+|---cn2an.py         Convert Chinese numbers to Arabic numbers Newly defined class names
+|---config.yaml      The configuration of the project, mainly the definition of the matching rules Add the abnormal field
+|---setup.py         Project packaging, packaging and publishing Add my information
 
-|---translate.py Convert the content of the sentence to determine the conversion, use the abnormal field
-                 With parameters Modified regular expression
-|---Auxiliary definition of basic functions in utils.py None
-|---requirement.txt The package required by the project None
+|---translate.py     Convert the content of the sentence to determine the conversion,     use the abnormal field
+                     With parameters Modified regular expression
+|---Auxiliary        Definition of basic functions in utils.py                                    None
+|---requirement.txt  The package required by the project                                          None
 ````
 ------
 
@@ -90,10 +90,9 @@ Welcome to star and follow, everyone to maintain and improve together;
   Of course, I can't guarantee that this rule can help you solve the corresponding business needs. Therefore, you can redefine it in __self.cn_pattern__ of [translate](translate.py).
 
 - 🎈 Introduced isolation conversion and regression of abnormal words o(*￣▽￣*)ブ
-When the above redefinition criteria are defined, situations such as `Wanning`, `In case`, and `seven up and eight down` can be avoided, but it is still necessary to sigh the vastness and profoundness of Chinese
+When the above redefinition criteria are defined, situations such as `Wanning`, `In case`, and `seven up and eight down` can be avoided, but it is still necessary to sigh the vastness and profoundness of Chinese  
 
 ![1](https://img1.baidu.com/it/u=1108671039,3873010749&fm=253&fmt=auto&app=138&f=GIF?w=254&h=245)
-
 ````python
 'E.g':
     'One Five Ten'
@@ -169,7 +168,7 @@ print(cnoan.__version__)
 # 0.5.16
 ```
 
-### 3.1 `中文数字` => `阿拉伯数字`
+### 3.1 `Chinese numbers` => `Arabic numerals`
 
 > 最大支持到 `10**16`，即 `千万亿`，最小支持到 `10**-16`。
 
@@ -204,21 +203,21 @@ output = cnoan.cn2an("一点二三", "strict")
 # 1.23
 ```
 
-### 3.2 `阿拉伯数字` => `中文数字`
+### 3.2 `Arabic numerals` => `Chinese numbers`
 
 > 最大支持到`10**16`，即`千万亿`，最小支持到 `10**-16`。
 
 ```python
 import cnoan
 
-# 在 low 模式（默认）下，数字转化为小写的中文数字
+# 在 low 模式（默认）下，数字转化为小写的Chinese numbers
 output = cnoan.an2cn("123")
 # 或者
 output = cnoan.an2cn("123", "low")
 # output:
 # 一百二十三
 
-# 在 up 模式下，数字转化为大写的中文数字
+# 在 up 模式下，数字转化为大写的Chinese numbers
 output = cnoan.an2cn("123", "up")
 # output:
 # 壹佰贰拾叁
@@ -241,19 +240,19 @@ output = cnoan.an2cn("1.23", "low")
 
 ### 3.3 句子转化
 
-> ⚠️：试验性功能，可能会造成不符合期望的转化。
+> ⚠️：Experimental feature that may cause undesired conversions.
 
 ```python
 import cnoan
 
-# 在 cn2an 方法（默认）下，可以将句子中的中文数字转成阿拉伯数字
+# 在 cn2an 方法（默认）下，可以将句子中的Chinese numbers转成Arabic numerals
 output = cnoan.translate("小王捡了一百块钱")
 # 或者
 output = cnoan.translate("小王捡了一百块钱", "cn2an")
 # output:
 # 小王捡了100块钱
 
-# 在 an2cn 方法下，可以将句子中的中文数字转成阿拉伯数字
+# 在 an2cn 方法下，可以将句子中的Chinese numbers转成Arabic numerals
 output = cnoan.translate("小王捡了100块钱", "an2cn")
 # output:
 # 小王捡了一百块钱
