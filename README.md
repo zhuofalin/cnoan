@@ -64,7 +64,7 @@ Welcome to star and follow, everyone to maintain and improve together;
 - Support `Arabic numbers` => `Uppercase Chinese numbers`;
 - Support `Arabic numerals` => `Uppercase RMB`;
 
-#### 1.3 Sentence Transformation
+#### 1.3 Sentence translate
 
 - Support `Chinese numbers` => `Arabic numbers`;
     - support `date`;
@@ -246,7 +246,7 @@ output = cnoan.an2cn("1.23", "low")
 # 一点二三
 ```
 
-### 3.3 sentence transformation
+### 3.3 Sentence translate
 
 > ⚠️：Experimental feature that may cause undesired conversions.
 
@@ -292,7 +292,7 @@ output = cnoan.translate("抛出去的硬币为正面的概率是1/2", "an2cn")
 [![](https://award.dovolopor.com?lt=Ailln's&rt=idea&lbc=lightgray&rbc=red&ltc=red)](https://github.com/Ailln/award)
 
 -----
-##  communicate
+##  Communicate
 
 If you have any questions, you can communicate with me through [email] (1822643111@qq.com), and I will reply as soon as possible.
 
