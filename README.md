@@ -1,2 +1,3 @@
-# cnoan
-Chinese numerals and Arabic numerals conversion based python
+## Chinese numerals and Arabic numerals conversion
+
+There should be emojis here (●'◡'●)
