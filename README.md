@@ -104,7 +104,7 @@ Welcome to star and follow, everyone to maintain and improve together;
   Of course, I can't guarantee that this rule can help you solve the corresponding business needs. Therefore, you can redefine it in __self.cn_pattern__ of [translate](translate.py).
 
 - 🎈 Introduced isolation conversion and regression of abnormal words o(*￣▽￣*)ブ
-When the above redefinition criteria are defined, situations such as `Wanning`, `In case`, and `seven up and eight down` can be avoided, but it is still necessary to sigh the vastness and profoundness of Chinese  
+When the above redefinition criteria are defined, situations such as `万宁`, `万一`, and `七上八下` can be avoided, but it is still necessary to sigh the vastness and profoundness of Chinese  
 
 ![1](https://img1.baidu.com/it/u=1108671039,3873010749&fm=253&fmt=auto&app=138&f=GIF?w=254&h=245)
 ````python
